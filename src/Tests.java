@@ -9,8 +9,8 @@ public class Tests {
         int j = 0;
 
         totalPairs = 5;
-        int[][] comp = new int[totalPairs][totalPairs]; // creates the 3d array for the companies based on size given above
-        int[][] prog = new int[totalPairs][totalPairs]; // creates the 3d array for the programmers based on size given above
+        Company[] companies = new Company[totalPairs]; // creates the 3d array for the companies based on size given above
+        Programmer[] programmers = new Programmer[totalPairs]; // creates the 3d array for the programmers based on size given above
 
         Integer[] shuffler = new Integer[totalPairs];
         for(int i = 0; i < shuffler.length; i++){
@@ -19,28 +19,31 @@ public class Tests {
 
         for (int i = 0; i < totalPairs; i++){ //takes in the preferences for each programmer and puts it into the the prog array.
             Collections.shuffle(Arrays.asList(shuffler));
+            int[] prog = new int[totalPairs];
             while ( j < totalPairs){
-                prog[i][k] = shuffler[j];
+                prog[k] = shuffler[j];
                 k++;
                 j++;
             }
+            programmers[i] = new Programmer(prog);
             j=0;
             k=0;
         }
         for (int i =0; i < totalPairs; i++){ //takes in the preferences for each companies and puts it into the the comp array.
             Collections.shuffle(Arrays.asList(shuffler));
+            int[] comp = new int[totalPairs];
             while ( j < totalPairs){
-                comp[i][k] = shuffler[j];
+                comp[k] = shuffler[j];
                 k++;
                 j++;
             }
+            companies[i] = new Company(comp);
             j=0;
             k=0;
         }
-        System.out.println("Programmers and preferences: " + Arrays.deepToString(prog));
-        System.out.println("Companies and preferences: " + Arrays.deepToString(comp));
 
-        int[][] pairs = BestFit.stableMatch(prog, comp, totalPairs);
+
+        int[][] pairs = BestFit.stableMatch(programmers, companies, totalPairs);
         System.out.println("Finished matches: " + Arrays.deepToString(pairs));
 
     }

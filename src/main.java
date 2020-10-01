@@ -12,8 +12,8 @@ public class main {
 
             System.out.println("Input the value n for the number of n companies and n programmers.");
             compProg = scan.nextInt();
-            int[][] comp = new int[compProg][compProg]; // creates the 3d array for the companies based on size given above
-            int[][] prog = new int[compProg][compProg]; // creates the 3d array for the programmers based on size given above
+            Company[][] comp = new Company[compProg][compProg]; // creates the 3d array for the companies based on size given above
+            Programmer[][] prog = new Programmer[compProg][compProg]; // creates the 3d array for the programmers based on size given above
 
             for (int i = 0; i < compProg; i++){ //takes in the preferences for each programmer and puts it into the the prog array.
                 System.out.println("Please input preferences (separated by spaces) for programmer "+ (i+1) +": ");

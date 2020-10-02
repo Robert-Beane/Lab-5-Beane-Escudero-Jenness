@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Company {
     boolean paired;
     public int[] preferences;
@@ -31,5 +33,10 @@ public class Company {
             }
         }
         return -1;
+    }
+
+    public String toString(){
+        String asString = Arrays.toString(preferences);
+        return asString;
     }
 }

@@ -42,9 +42,17 @@ public class Tests {
             k=0;
         }
 
+        for (int i = 0; i < totalPairs; i++){
+            System.out.println("Programmer " + i + " prefs: " + programmers[i].toString());
+        }
+
+        for(int i = 0; i<totalPairs; i++){
+            System.out.println("Company " + i + " prefs: " + companies[i].toString());
+        }
+
 
         int[][] pairs = BestFit.stableMatch(programmers, companies, totalPairs);
-        System.out.println("Finished matches: " + Arrays.deepToString(pairs));
+        System.out.println("Finished matches (Ordered [company,programmer]): " + Arrays.deepToString(pairs));
 
     }
 }

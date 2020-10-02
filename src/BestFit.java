@@ -4,7 +4,6 @@ public class BestFit {
     public static int[][] stableMatch(Programmer[] programmers, Company[] companies, int pairCount){
         int pairsMade = 0;
         int[][] pairs = new int[pairCount][2];
-        boolean[] programmersPartnered = new boolean[pairCount];
 
         //while there exists unpaired programmers
         while(pairsMade < pairCount) {
@@ -84,68 +83,4 @@ public class BestFit {
         return result;
     }
 
-    private static boolean isFree(int[][] groupList, int company){
-        boolean result = true;
-        for(int j = 0; j < groupList.length; j++){
-            if(groupList[j][1] == company){
-                result = false;
-            }
-        }
-        return result;
-    }
-
-    private static boolean isPaired(int [][] groupList, int programmer){
-        boolean result = false;
-        for(int i = 0; i < groupList.length; i++){
-            if(groupList[i][0] == programmer){
-                result = true;
-            }
-        }
-        return result;
-    }
-
 }
-
-//while
-/*
-while(pairsMade < pairCount) {
-            parings:
-            for (int programmer : freeProgrammers) {
-                if (programmer != -1) {
-                    int[] preferenceList = programmers[programmer];
-                    int preferredCompany = 0;
-
-                    firstPreference:
-                    //gets the first non-attempted company
-                    for (int preference : preferenceList) {
-                        //-1 here means attempted to pair
-                        if (preference != -1) {
-                            preferredCompany = preference;
-                        }
-                    }
-
-                        //checks if preferred company is NOT paired
-                        if (!(Arrays.binarySearch(pairedCompanies, preferredCompany) > 0)) {
-                            pairs[preferredCompany][0] = preferredCompany;
-                            pairs[preferredCompany][1] = programmer;
-                            freeProgrammers[programmer] = -1;
-                            freeCompanies[preferredCompany] = -1;
-                            pairsMade++;
-                            break parings;
-                        } else {
-                            if (rankCompare(companies[preferredCompany], pairs[preferredCompany][1], programmer) < 0){
-                                freeProgrammers[pairs[preferredCompany][1]] = pairs[preferredCompany][1];
-                                pairs[preferredCompany][1] = programmer;
-                                freeProgrammers[programmer] = -1;
-                            } else{
-                                programmers[programmer][Arrays.binarySearch(programmers[programmer],preferredCompany)] = -1;
-                            }
-                        }
-                    //}
-                }
-            }
-            System.out.println("Total pairs: " + pairsMade);
-            System.out.println("Current Pairs: " + Arrays.deepToString(pairs));
-        }
- */
-

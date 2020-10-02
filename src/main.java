@@ -40,6 +40,7 @@ public class main {
                 k=0;
             }
             int[][] pairs = BestFit.stableMatch(programmers, companies, compProg);
+            System.out.println("Finished matches (Ordered [company,programmer]): " + Arrays.deepToString(pairs));
         }
 
 }

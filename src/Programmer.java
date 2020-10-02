@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Programmer {
     public boolean paired; //are they paired with a company
     public int partnerCompany;
@@ -10,14 +12,9 @@ public class Programmer {
         attemptedPairings = new boolean[preferences.length];
     }
 
-//    public boolean hasBeenAttempted(int company){
-//        boolean result = false;
-//        for(int i = 0; i < preferences.length; i++){
-//            if(company == failedPairings[i]){
-//
-//            }
-//        }
-//        return result;
-//    }
+    public String toString(){
+        String asString = Arrays.toString(preferences);
+        return asString;
+    }
 
 }
